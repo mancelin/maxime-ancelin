@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 # configuration
@@ -13,7 +13,7 @@ app.config.from_pyfile('./config.ini', silent=True)
 
 @app.route("/")
 def index():
-    return "Page d'acceuil"
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run()
