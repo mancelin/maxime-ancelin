@@ -9,7 +9,7 @@ DEBUG = True
 
 # create application
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_pyfile('./config.ini', silent=True)
 
 @app.route("/")
 def index():
