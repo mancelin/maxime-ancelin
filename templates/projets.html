@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
   <p>Projets.</p>
+  <ul>
+  {% for project in projects %}
+    <li><b style="margin-right: 2em;">{{ project._id }}</b>{{ project.time }}</li>
+  {% endfor %}
+  <ul>
 {% endblock %}

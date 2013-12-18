@@ -4,6 +4,8 @@
 from flask import Flask, render_template
 import pymongo
 
+from controllers import projects
+
 
 # configuration db
 db_host_name = 'localhost'
@@ -21,12 +23,9 @@ db = pymongo.Connection(host=db_host_name, port=db_port)[db_name]
 def index():
     return render_template('index.html')
 
-#@app.route("/add_project")
-@app.route("/add")
-def add_project():
-    db.projets.save( { 'name' : "mongo" } , safe=True)
-    print "add !"
-    return render_template('index.html')
+@app.route("/ADMIN")
+def admin():
+    return projects.admin(db)
 
 @app.route("/contact")
 def contact():
@@ -36,9 +35,14 @@ def contact():
 def cv():
     return render_template('CV.html', title=' - CV')
 
+@app.route("/logout")
+def logout():
+    # logout
+    return render_template('index.html')
+
 @app.route("/projets")
 def projets():
-    return render_template('projets.html', title=' - Projets')
+    return projects.list(db)
 
 
 @app.route("/sites_amis")
