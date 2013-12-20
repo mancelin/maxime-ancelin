@@ -1,32 +1,9 @@
-<!doctype html>
-<html>
-  <head>
-    <title>mancelin - admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Maxime Ancelin">
-
-    <link rel="stylesheet" href="/static/vendor/bootstrap/3.0.2/css/bootstrap.min.css">
-  </head>
-  <body>
-
-    <div class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/logout">ADMIN [logout]</a>
-      </div>
-      <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/admin">Projets</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container">
+{% extends "/admin/base.html" %}
+{% block body %}
       <div>
-        <p>
-          <button type="button" class="btn btn-primary">Créer</button>
-          <button type="button" class="btn btn-danger">Supprimer Selectionnés</button>
-        </p>
+          <a class="btn btn-primary" href="/ADMIN/create">Create</a>
+          <button type="button" class="btn btn-danger">Remove selected projects</button>
+          <br><br>
       </div>
       <table class="table table-bordered table-hover">
         <thead>
@@ -50,7 +27,4 @@
         {% endfor %}
         </tbody>
       </table>
-    </div>
-
-  </body>
-</html>
+{% endblock %}

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import pymongo
 
 from controllers import projects
@@ -19,33 +19,37 @@ db = pymongo.Connection(host=db_host_name, port=db_port)[db_name]
 
 
 # routes
-@app.route("/")
+@app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route("/ADMIN")
+@app.route('/ADMIN')
 def admin():
     return projects.admin(db)
 
-@app.route("/contact")
+@app.route('/ADMIN/create', methods=['GET', 'POST'])
+def create():
+    return projects.create(db, request.method)
+
+@app.route('/contact')
 def contact():
     return render_template('contact.html', title=' - Contact')
 
-@app.route("/CV")
+@app.route('/CV')
 def cv():
     return render_template('CV.html', title=' - CV')
 
-@app.route("/logout")
+@app.route('/logout')
 def logout():
     # logout
     return render_template('index.html')
 
-@app.route("/projets")
+@app.route('/projets')
 def projets():
     return projects.list(db)
 
 
-@app.route("/sites_amis")
+@app.route('/sites_amis')
 def sites_amis():
     return render_template('sites_amis.html', title=' - Site amis')
 
