@@ -11,17 +11,7 @@ function initEditProject() {
 
   $('#project-date').datepicker();
 
-  $.ajax({
-    dataType: 'json',
-    url: '/tags.json'
-  })
-    .done(function(data) {
-      $('.tags input', $el).select2({
-        containerCssClass: 'input-xxlarge',
-        tags: data,
-        tokenSeparators: [',', ' ']
-      });
-    });
+  $("#tags").select2();
 }
 
 // Exports

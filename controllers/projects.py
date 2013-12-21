@@ -15,7 +15,8 @@ def admin(db):
 
 def create(db, method):
     print method
-    return render_template('admin/projects/create.html', title='[ADMIN] - Nouveau Projet');
+    tags = db.projects.distinct('tags')
+    return render_template('admin/projects/create.html', tags=tags, title='[ADMIN] - Nouveau Projet');
 
 #def edit()
 
