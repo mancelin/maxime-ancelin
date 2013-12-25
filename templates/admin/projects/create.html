@@ -1,8 +1,9 @@
 {% extends "/admin/base.html" %}
 {% block css %}
 <link rel="stylesheet" href="/static/vendor/datepicker/css/datepicker.css">
-<link rel="stylesheet" href="/static/vendor/select2-3.4.5/select2.css">
-<link rel="stylesheet" href="/static/vendor/select2-3.4.5/select2-bootstrap.css">
+<link rel="stylesheet" href="/static/vendor/select2/select2.css">
+<link rel="stylesheet" href="/static/vendor/select2/select2-bootstrap.css">
+<link rel="stylesheet" href="/static/vendor/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css">
 {% endblock %}
 
 {% block body %}
@@ -15,7 +16,7 @@
 
     <label for="project-date" class="col-sm-2 control-label">Date</label>
     <div class="col-sm-2">
-      <input type="date" class="form-control" id="project-date" data-date-format="dd/mm/yyyy">
+      <input type="text" class="form-control" id="project-date" data-date-format="dd/mm/yyyy">
     </div>
   </div>
 
@@ -29,13 +30,13 @@
   <!--  Use WYSIGYG HTML5-->
   <div class="form-group">
     <label for="readme" class="col-sm-1 control-label">Readme</label>
-    <label for="description" class="col-sm-1 control-label">Readme</label>
     <div class="col-sm-10">
-      <textarea class="form-control" id="readme" rows="2">Use WYSIGYG HTML5</textarea>
+      <textarea class="form-control" id="readme" rows="17"></textarea>
     </div>
   </div>
 
   <!--  FORM CSS -->
+
   <div class="form-group">
     <label for="tags" class="col-sm-1 control-label">Tags</label>
     <div class="col-sm-8">
@@ -68,9 +69,10 @@
     <button type="submit" class="btn btn-danger">Remove</button>
   </div>
 </form>
-<script src="/static/vendor/jquery/jquery-1.10.2.min.js"></script>
+<script src="/static/vendor/jquery/jquery.min.js"></script>
 <script src="/static/vendor/datepicker/js/bootstrap-datepicker.js"></script>
-<script src="/static/vendor/select2-3.4.5/select2.js"></script>
+<script src="/static/vendor/select2/select2.js"></script>
+<script src="/static/vendor/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="/static/edit.js"></script>
 <script>
 $(function() {

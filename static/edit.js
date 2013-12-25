@@ -11,7 +11,12 @@ function initEditProject() {
 
   $('#project-date').datepicker();
 
-  $("#tags").select2();
+  $('#tags').select2();
+
+  $('#readme').wysihtml5({
+    "html": true,
+    "blockquote": true,
+  });
 }
 
 // Exports
