@@ -4,7 +4,7 @@ function initEditProject() {
 
   // Prevents enter key to submit form.
   $('form').on('keypress', function(evt) {
-   if (evt.keyCode === 13 || evt.which === 13) {
+   if ((evt.keyCode === 13 || evt.which === 13) && document.activeElement.id !== "description"){
       evt.preventDefault();
     }
   });
