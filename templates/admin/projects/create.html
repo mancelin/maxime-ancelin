@@ -7,23 +7,23 @@
 {% endblock %}
 
 {% block body %}
-<form class="form-horizontal" role="form">
+<form action="{{ url_for('create') }}" class="form-horizontal" role="form" method="post">
   <div class="form-group">
     <label for="name" class="col-sm-1 control-label">Name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="name">
+      <input type="text" class="form-control" name="name">
     </div>
 
     <label for="project-date" class="col-sm-2 control-label">Date</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="project-date" data-date-format="dd/mm/yyyy">
+      <input type="text" class="form-control" data-date-format="dd/mm/yyyy" id="project-date" name="project-date">
     </div>
   </div>
 
   <div class="form-group">
     <label for="description" class="col-sm-1 control-label">Description</label>
     <div class="col-sm-10">
-      <textarea class="form-control" id="description" rows="2"></textarea>
+      <textarea class="form-control" id="description" name="description" rows="2"></textarea>
     </div>
   </div>
 
@@ -31,7 +31,7 @@
   <div class="form-group">
     <label for="readme" class="col-sm-1 control-label">Readme</label>
     <div class="col-sm-10">
-      <textarea class="form-control" id="readme" rows="17"></textarea>
+      <textarea class="form-control" id="readme" name="readme" rows="17"></textarea>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
   <div class="form-group">
     <label for="tags" class="col-sm-1 control-label">Tags</label>
     <div class="col-sm-8">
-      <select id="tags" class="form-control" multiple>
+      <select class="form-control" id="tags" name="tags" multiple>
         {% for tag in tags %}
         <option value={{tag}}>{{tag}}</option>
         {% endfor %}
@@ -52,21 +52,21 @@
   <div class="form-group">
     <label for="source-url" class="col-sm-1 control-label">Source URL</label>
     <div class="col-sm-6">
-      <input type="url" class="form-control" id="source-url">
+      <input type="url" class="form-control" id="source-url" name="source-url">
     </div>
   </div>
 
   <div class="form-group">
     <label for="run-url" class="col-sm-1 control-label">Run URL</label>
     <div class="col-sm-6">
-      <input type="url" class="form-control" id="run-url">
+      <input type="url" class="form-control" id="run-url" name="run-url">
     </div>
   </div>
 
   <div class="col-sm-offset-8">
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="submit" class="btn btn-primary">Save and new</button>
-    <button type="submit" class="btn btn-danger">Remove</button>
+    <button type="submit" class="btn btn-primary" name="btn" value="save">Save</button>
+    <button type="submit" class="btn btn-primary" name="btn" value="save_and_new">Save and new</button>
+    <button type="submit" class="btn btn-danger" name="btn" value="remove">Remove</button>
   </div>
 </form>
 <script src="/static/vendor/jquery/jquery.min.js"></script>
