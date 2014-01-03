@@ -27,7 +27,6 @@
     </div>
   </div>
 
-  <!--  Use WYSIGYG HTML5-->
   <div class="form-group">
     <label for="readme" class="col-sm-1 control-label">Readme</label>
     <div class="col-sm-10">
@@ -40,11 +39,7 @@
   <div class="form-group">
     <label for="tags" class="col-sm-1 control-label">Tags</label>
     <div class="col-sm-8">
-      <select class="form-control" id="tags" name="tags" multiple>
-        {% for tag in tags %}
-        <option value={{tag}}>{{tag}}</option>
-        {% endfor %}
-      </select>
+      <input type="text" class="form-control" id="tags" name="tags">
     </div>
   </div>
 

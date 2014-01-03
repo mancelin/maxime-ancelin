@@ -48,10 +48,15 @@ def logout():
 def projets():
     return projects.list(db)
 
-
 @app.route('/sites_amis')
 def sites_amis():
     return render_template('sites_amis.html', title=' - Site amis')
+
+@app.route('/tags.json')
+def tags():
+    return projects.tags(db)
+
+
 
 
 if __name__ == "__main__":

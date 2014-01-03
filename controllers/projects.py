@@ -2,6 +2,7 @@
 
 
 from flask import Flask, render_template
+import json
 import pymongo
 
 
@@ -22,3 +23,9 @@ def create(db, method):
 
 
 #def delete()
+
+# return json with distinc tags sorted
+def tags(db):
+    tags = db.projects.distinct('tags')
+    tags.sort()
+    return json.dumps(tags, encoding='utf-8', ensure_ascii=False, indent=2)
