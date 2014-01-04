@@ -10,7 +10,7 @@ function initEditProject() {
     }
   });
 
-  $('#project-date').datepicker();
+  $('#date').datepicker();
 
   $.ajax({
     dataType: 'json',
