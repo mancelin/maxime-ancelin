@@ -29,7 +29,11 @@ def admin():
 
 @app.route('/ADMIN/create', methods=['GET', 'POST'])
 def create():
-    return projects.create(db, request.method)
+    return projects.create_or_edit(db, request)
+
+@app.route('/ADMIN/edit/<slug>', methods=['GET', 'POST'])
+def edit(slug):
+    return projects.create_or_edit(db, request, slug=slug)
 
 @app.route('/contact')
 def contact():
@@ -55,8 +59,6 @@ def sites_amis():
 @app.route('/tags.json')
 def tags():
     return projects.tags(db)
-
-
 
 
 if __name__ == "__main__":

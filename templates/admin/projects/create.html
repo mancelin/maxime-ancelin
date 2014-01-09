@@ -7,30 +7,45 @@
 {% endblock %}
 
 {% block body %}
-<form action="{{ url_for('create') }}" class="form-horizontal" role="form" method="post">
+{% if error %}
+<div class="alert alert-danger">
+    <h3>Error</h3>
+    <p>{{ error }}</p>
+</div>
+{% endif %}
+<form url="{{ request.path }}" class="form-horizontal" role="form" method="post">
   <div class="form-group">
-    <label for="name" class="col-sm-1 control-label">Name</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" name="name">
+{% if error %}
+    <div class="has-error">
+{% else %}
+    <div>
+{% endif %}
+        <label for="name" class="col-sm-1 control-label">Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="name" value="{{ project.get('name') or '' }}">
+        </div>
     </div>
-
     <label for="date" class="col-sm-2 control-label">Date</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" data-date-format="dd/mm/yyyy" id="date" name="date">
+      <input type="text" class="form-control" data-date-format="dd/mm/yyyy" id="date" name="date"
+         value="{{ project.get('date') or '' }}">
     </div>
   </div>
 
   <div class="form-group">
     <label for="description" class="col-sm-1 control-label">Description</label>
     <div class="col-sm-10">
-      <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+      <textarea class="form-control" id="description" name="description"
+        rows="2">{{ project.get('description') or '' }}</textarea>
     </div>
   </div>
 
   <div class="form-group">
     <label for="readme" class="col-sm-1 control-label">Readme</label>
     <div class="col-sm-10">
-      <textarea class="form-control" id="readme" name="readme" rows="17"></textarea>
+      <textarea class="form-control" id="readme" name="readme" rows="17">
+        {{ project.get('readme') or '' }}
+      </textarea>
     </div>
   </div>
 
@@ -39,7 +54,8 @@
   <div class="form-group">
     <label for="tags" class="col-sm-1 control-label">Tags</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="tags" name="tags">
+      <input type="text" class="form-control" id="tags" name="tags"
+           value="{{ ', '.join(project.get('tags') or '') }}">
     </div>
   </div>
 
@@ -47,22 +63,25 @@
   <div class="form-group">
     <label for="source_url" class="col-sm-1 control-label">Source URL</label>
     <div class="col-sm-6">
-      <input type="url" class="form-control" id="source_url" name="source_url">
+      <input type="url" class="form-control" id="source_url" name="source_url"
+          value="{{ project.get('source_url') or '' }}">
     </div>
   </div>
 
   <div class="form-group">
     <label for="run_url" class="col-sm-1 control-label">Run URL</label>
     <div class="col-sm-6">
-      <input type="url" class="form-control" id="run_url" name="run_url">
+      <input type="url" class="form-control" id="run_url" name="run_url"
+           value="{{ project.get('run_url') or '' }}">
     </div>
   </div>
 
-  <div class="col-sm-offset-8">
+  <div class="col-sm-offset-9">
     <button type="submit" class="btn btn-primary" name="btn" value="save">Save</button>
-    <button type="submit" class="btn btn-primary" name="btn" value="save_and_new">Save and new</button>
+<!--    <button type="submit" class="btn btn-primary" name="btn" value="save_and_new">Save and new</button>-->
     <button type="submit" class="btn btn-danger" name="btn" value="remove">Remove</button>
   </div>
+  <br>
 </form>
 <script src="/static/vendor/jquery/jquery.min.js"></script>
 <script src="/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -75,6 +94,10 @@
 <script>
 $(function() {
   initEditProject();
+
+  {% if project.get('slug') is none %}
+    $('.btn[value=remove]').hide();
+  {% endif %}
 });
 </script>
 {% endblock %}
