@@ -9,6 +9,9 @@
     <note priority="low" time="1387378513">
         Make 404
     </note>
+    <note priority="low" time="1388919200">
+        python3 version
+    </note>
     <note priority="verylow" time="1385926118">
         Mise en place système commentaires
     </note>
