@@ -23,9 +23,9 @@ db = pymongo.Connection(host=db_host_name, port=db_port)[db_name]
 def index():
     return render_template('index.html')
 
-@app.route('/ADMIN')
+@app.route('/ADMIN', methods=['GET', 'POST'])
 def admin():
-    return projects.admin(db)
+    return projects.admin(db, request)
 
 @app.route('/ADMIN/create', methods=['GET', 'POST'])
 def create():

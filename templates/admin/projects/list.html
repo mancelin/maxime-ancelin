@@ -1,30 +1,40 @@
 {% extends "/admin/base.html" %}
 {% block body %}
-      <div>
-          <a class="btn btn-primary" href="/ADMIN/create">Create</a>
-          <button type="button" class="btn btn-danger">Remove selected projects</button>
-          <br><br>
-      </div>
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th><input type="checkbox" value="toogle_select_all"><br></th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Tags</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for project in projects %}
-          <tr>
-            <td><input type="checkbox" value={{ project._id }}></td>
-            <td><a href="/ADMIN/edit/{{ project.slug }}" >{{ project.name }}</a></td>
-            <td>{{ project.time }}</td>
-            <td>
-            {{ ', '.join(project.tags) }}
-            </td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+<form url="{{ url_for('admin') }}" class="form-horizontal" role="form" method="post">
+  <div>
+    <a class="btn btn-primary" href="/ADMIN/create">Create</a>
+      <button type="submit" class="btn btn-danger" value="remove_selected">Remove selected projects</button>
+    <br><br>
+  </div>
+  <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th><input type="checkbox" name="toogle_select_all"><br></th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for project in projects %}
+    <tr>
+      <td><input type="checkbox" name={{ project.slug }} value={{ project._id }}></td>
+      <td><a href="/ADMIN/edit/{{ project.slug }}" >{{ project.name }}</a></td>
+      <td>{{ project.date }}</td>
+      <td>
+      {{ ', '.join(project.tags) }}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</form>
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script src="/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/list.js"></script>
+<script>
+$(function() {
+  initListProject();
+});
+</script>
 {% endblock %}
