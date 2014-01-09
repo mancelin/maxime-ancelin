@@ -64,7 +64,8 @@ def remove(db, slug):
 # remove selected projects (checkbox)
 def remove_selected(db, id_list):
     for id in id_list:
-        db.projects.remove(ObjectId(id))
+        if(id != 'toogle_select_all'):
+            db.projects.remove(ObjectId(id))
 
 # return json with distinc tags sorted
 def tags(db):
