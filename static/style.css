@@ -1,7 +1,48 @@
 body {
-    font-family: 'PT Serif', serif;
-    font-size: 18px;
-    background-color: white;
-    color: #000;
+  background-color: white;
+  color: #000;
+  font-family: 'PT Serif', serif;
+  font-size: 18px;
+}
+
+.an_cv {
+  text-align: center;
+  vertical-align: top;
+  width: 96px;
+}
+
+.cvtext {
+  left: 150px;
+  position: relative;
+  width: 80%;
+}
+
+.down_cv {
+  padding-bottom: 50px;
+  position: absolute;
+  right: 200px;
+}
+
+.experiences td {
+  padding-bottom: 16px;
+}
+
+.item_cv {
+  left: 20px;
+  position: relative;
+}
+
+.langue_cv {
+  width: 75px;
+}
+
+.liste_cv {
+  left: 35px;
+  position: relative;
+}
+
+.photo_id {
+  left: 800px;
+  position: absolute;
 }
 

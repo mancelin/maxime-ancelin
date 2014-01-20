@@ -1,4 +1,124 @@
 {% extends "base.html" %}
 {% block body %}
-  <p>CV.</p>
+  <div class="cvtext">
+    <img class="photo_id" src="/static/img/id.jpg" alt="Maxime Ancelin" />
+    <p><b>Maxime ANCELIN</b><br>
+    46 avenue du Bois de Verrières, bâtiment C, 3ème G<br>
+    92160 Antony<br>
+    Téléphone : <a href="tel:0642207654">06 42 20 76 54</a> <br>
+    E-mail : <a href="mailto:ancelin.maxime@gmail.com">ancelin.maxime@gmail.com</a><br>
+    GitHub : <a href="https://github.com/mancelin">https://github.com/mancelin</a><br>
+    Né le 29 août 1988 à Bordeaux</p>
+    <h3>Ingénieur Logiciel</h3>
+    <br>
+
+    <h4>Compétences informatiques</h4>
+    <p class="item_cv"><em>Langages de développement</em> : Python, JavaScript, Perl, PHP</p>
+    <p class="item_cv"><em>Technologies Web</em> : HTML5, CSS, Twitter Bootstrap, jQuery, Python WSGI, webservices JSON, Flask</p>
+    <p class="item_cv"><em>Bases de données</em> : MongoDB, PostgreSQL, MySQL</p>
+    <p class="item_cv"><em>Analyse et conception</em> : compréhension des besoins, spécifications, MVC, UML</p>
+    <p class="item_cv"><em>Outils « DevOps »</em> : GNU/Linux, Debian, git, SSH, Apache, RequestTracker, Redmine</p>
+    <br>
+
+    <h4>Expériences</h4>
+    <div class="item_cv experiences">
+      <table>
+        <tr>
+          <td class="an_cv">
+            2012 – 2013
+          </td>
+          <td>
+            Employé pendant un an chez <a href="http://www.easter-eggs.com">Easter-eggs</a>, en alternance avec
+            l'<a href="http://www.insta.fr/">INSTA</a> (9 mois en entreprise).<br>
+            Audit, analyse et <em>refonte du SI</em> d'une société de formation, en mode itératif, sans coupure de service.<br>
+            <em>Simplification de l'architecture</em>, des appels inter-applicatifs, isolation de l'extranet par rapport à l'intranet.<br>
+            Assistance à la définition des besoins, <em>conception, développement et déploiement</em> d'applications web en
+            Python WSGI.<br>
+            Suivi de projet, relation client et <em>maintenance applicative</em> via un outil de gestion de tickets.<br>
+            <em>Administration applicative</em> sur les plates-formes de pré-production et de production.<br>
+            Organisation du travail avec les équipes de développement et d'administration système et réseaux de
+            l'entreprise.
+          </td>
+        </tr>
+        <tr>
+          <td class="an_cv">
+            2012
+          </td>
+          <td>
+            Projet universitaire, création d'un éditeur de figures pour Tikz, un <em>package</em> LaTeX, en Perl.<br>
+            Conception et développement de l'interface graphique en Qt, du <em>parser</em> de code source Tikz à base
+            d'expressions régulières, des algorithmes de détection de clics dans les figures. Utilisation du pattern
+            « event loop » de Qt pour gérer l'état de l'interface graphique et le rendu des figures.<br>
+            Apprentissage de Qt et LaTeX en autodidacte.
+          </td>
+        </tr>
+        <tr>
+          <td class="an_cv">
+            2012
+          </td>
+          <td>
+            Création d'un jeu 2D en Java, clone de Boulder Dash, méthodologie « Test-Driven Development ».
+          </td>
+        </tr>
+        <tr>
+          <td class="an_cv">
+            2010
+          </td>
+          <td>
+            Création d'un interprète du langage Logo en Java, permettant de dessiner à l'écran et de faire se
+            déplacer un robot NXT LEGO.<br>
+            Développement d'un <em>parser</em> pour le langage Logo, de l'interface graphique Swing.<br>
+            Communication par Bluetooth entre le robot et l'ordinateur.
+          </td>
+        </tr>
+        <tr>
+          <td class="an_cv">
+            2010
+          </td>
+          <td>
+            Création d'un jeu point & clic en OCaml. Modélisation des niveaux du jeu sous forme de fonctions ainsi
+            que leurs enchaînements.
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+
+    <h4>Projets personnels</h4>
+    <p class="item_cv">Création de sites internet : <a href="http://pizzajoyosa.comuf.com">http://pizzajoyosa.comuf.com</a>,
+    <a href="http://www.loic-ancelin.com">http://www.loic-ancelin.com</a></p>
+    <p class="item_cv">Scripts utilitaires en Perl basés sur des commandes UNIX.</p>
+    <br>
+
+    <h4>Langues</h4>
+    <table class="item_cv">
+      <tr>
+        <td class="langue_cv">
+          Anglais
+        </td>
+        <td>
+          Capacité professionnelle complète.
+        </td>
+      </tr>
+      <tr>
+        <td class="langue_cv">
+          Espagnol
+        </td>
+        <td>
+          Bilingue. Diplôme supérieur de l'Institut Cervantes et Selectividad Espagnole.
+        </td>
+      </tr>
+    </table>
+    <br>
+
+    <h4>Centres d'intérêts</h4>
+    <p class="item_cv">Musique, basse dans un groupe de blues et jazz, théâtre, aïkido, tir à l'arc.</p>
+    <br>
+
+  </div>
+
+  <a class="down_cv" href="/static/files/CV_Maxime_Ancelin.pdf">
+   <img src="/static/img/pdf_icon.png" alt="CV Maxime Ancelin" width="50" height="50" />
+  </a>
+
 {% endblock %}
